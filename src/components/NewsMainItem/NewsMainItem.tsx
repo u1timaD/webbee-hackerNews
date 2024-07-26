@@ -1,3 +1,4 @@
+import { timeFormated } from '../../utils/timeFormated';
 import {
   NewsAuthor,
   NewsDate,
@@ -8,20 +9,16 @@ import {
   NewsTitle,
 } from './NewsMainItem.styled';
 
-const NewsMainItem = ({id, title, time_ago, time, user, points}) => {
-
-  const handleClick = () => {
-    console.log(`Нажали на ${id}`)
-  }
+const NewsMainItem = ({id, title, time, user, points}) => {
 
   return (
     <NewsItem>
-      <NewsLink onClick={handleClick}>
+      <NewsLink to={`/news/${id}`}>
         <NewsTitle variant="h2">{title}</NewsTitle>
         <NewsInfo>
-          <NewsRating>{points}</NewsRating>
-          <NewsAuthor>{user}</NewsAuthor>
-          <NewsDate>{time_ago}</NewsDate>
+          <NewsRating>{points ?? 0}</NewsRating>
+          <NewsAuthor>{user ?? 'гость'}</NewsAuthor>
+          <NewsDate>{timeFormated(time)}</NewsDate>
         </NewsInfo>
       </NewsLink>
     </NewsItem>

@@ -9,9 +9,10 @@ import {
   ReturnButton,
   ButtonWrapper,
 } from './Header.styled';
-
+import { Link } from 'react-router-dom';
 
 const Header = () => {
+
   return (
     <HeaderStyled component="header">
       <Container>
@@ -19,14 +20,18 @@ const Header = () => {
           <HeaderLogoLink to="/">
             <h1>HACKER NEWS</h1>
           </HeaderLogoLink>
-
           <ButtonWrapper>
-            <ReturnButton>
-              <KeyboardReturnIcon fontSize="large" />
-            </ReturnButton>
+
+            <Link to="/">
+              <ReturnButton>
+                <KeyboardReturnIcon fontSize="large" />
+              </ReturnButton>
+            </Link>
+
             <UpdateButton>
               <UpdateIcon fontSize="large" />
             </UpdateButton>
+            
           </ButtonWrapper>
         </HeaderWrapper>
       </Container>

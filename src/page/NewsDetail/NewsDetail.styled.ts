@@ -1,13 +1,13 @@
-import { Button, Link, List, ListItem, Typography } from '@mui/material';
+import { Button, Collapse, Link, List, ListItem, Typography } from '@mui/material';
 import styled from '@emotion/styled';
 import { Box } from '@mui/material';
 
-export const NewsSingleSection = styled(Box)``;
+export const NewsDetailSection = styled(Box)``;
 
-export const NewsSingleWrapper = styled(Box)`
+export const NewsDetailWrapper = styled(Box)`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 50px;
   padding: 0;
 `;
 
@@ -23,12 +23,6 @@ export const NewsBlock = styled(Box)`
     0px 0px 1px 0px #74939c80;
   overflow: hidden;
   padding: 25px 20px;
-`;
-
-export const NewsTitle = styled(Typography)`
-  font-size: 26px;
-  text-transform: uppercase;
-  font-weight: 700;
 `;
 
 export const NewsDescription = styled(Typography)`
@@ -55,12 +49,21 @@ export const NewsDate = styled(Typography)`
   text-transform: lowercase;
 `;
 
-export const NewsLink = styled(Button)`
-  margin-left: auto;
-`;
-
 export const NewTitleWrapper = styled(Box)`
   display: flex;
+  gap: 20px;
+`;
+
+export const NewsTitle = styled(Typography)`
+  font-size: 26px;
+  text-transform: uppercase;
+  font-weight: 700;
+`;
+
+export const NewsLink = styled(Button)`
+  margin-left: auto;
+  min-width: 132px;
+  height: 38px;
 `;
 
 export const CommentsCountBlock = styled(Box)`
@@ -79,40 +82,4 @@ export const CommentsBlock = styled(List)`
   display: flex;
   flex-direction: column;
   gap: 30px;
-
-`;
-
-export const CommentsList = styled(List)`
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  margin: 0;
-  gap: 20px;
-  border-left: 1px solid green;
-`;
-
-export const CommentsItem = styled(ListItem)`
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  padding: 0;
-  margin: 0;
-  gap: 10px;
-
-`;
-export const CommentText = styled(Typography)`
-
-font-size: 12px;
-
-text-align: left;
-  & + ul {
-    padding-left: 50px;
-  }
-`;
-
-export const CommentIndex = styled(Typography)`
-  font-size: 15px;
-  font-weight: 700;
-
-
 `;

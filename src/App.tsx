@@ -1,20 +1,18 @@
 import './App.css';
-
-import NewsSingle from './page/NewsSingle/NewsSingle';
+import NewsDetail from './page/NewsDetail/NewsDetail';
+import { Route, Routes } from 'react-router-dom';
+import MainLayout from './Layouts/MainLayout';
 import NewsMain from './page/NewsMain/NewsMain';
-import { Container } from '@mui/material';
-import Header from './components/Header/Header';
 
 function App() {
   return (
     <>
-      <Header />
-      <main>
-        <Container>
-          <NewsSingle />
-          <NewsMain />
-        </Container>
-      </main>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route path="" element={<NewsMain />} />
+          <Route path="news/:id" element={<NewsDetail />} />
+        </Route>
+      </Routes>
     </>
   );
 }
