@@ -14,20 +14,21 @@ import {
   NewTitleWrapper,
 } from './NewsDetail.styled';
 
-import { useEffect, useState } from 'react';
-import useStore from '../../zustand/store';
+import { useEffect } from 'react';
+import { usePagesStore, useNewsDetailStore } from '../../zustand/store';
 import { useParams } from 'react-router-dom';
-import { timeFormated } from '../../utils/timeFormated';
+import { formatTime } from '../../utils/utils';
 import CommentsItem from '../../components/CommentsItem/CommentsItem';
 
 const NewsDetail = () => {
   const { id } = useParams();
-  const { newsDetail, comments, fetchNewsDetail, loading, error } = useStore();
-
+  const { newsDetail, comments, fetchNewsDetail, loading, error } = useNewsDetailStore();
+  const { homePagesChecked } = usePagesStore();
 
   console.log(newsDetail);
   useEffect(() => {
-    fetchNewsDetail(id);
+    fetchNewsDetail(Number(id));
+    homePagesChecked(true);
   }, [id, fetchNewsDetail]);
 
   if (loading) return <div>Loading...</div>;
@@ -40,13 +41,14 @@ const NewsDetail = () => {
           <NewsBlock>
             <NewTitleWrapper>
               <NewsTitle variant="h2">{newsDetail?.title}</NewsTitle>
-              <NewsLink variant="contained" href={newsDetail?.url} target="_blank">
+              {/* <NewsLink variant="contained" href={newsDetail?.url} target="_blank"> */}
+              <NewsLink variant="contained" href={newsDetail?.url} >
                 Link to news
               </NewsLink>
             </NewTitleWrapper>
             <NewsInfo>
               <NewsAuthor>{newsDetail?.user ?? 'гость'}</NewsAuthor>
-              <NewsDate>{timeFormated(newsDetail?.time)}</NewsDate>
+              <NewsDate>{formatTime(newsDetail?.time)}</NewsDate>
               <CommentsCountBlock>
                 <CommentsCountText>{newsDetail?.comments_count}</CommentsCountText>
                 <CommentIcon />
@@ -57,10 +59,7 @@ const NewsDetail = () => {
             {comments.length === 0 ? (
               <div>Пока никто не оставил комментов</div>
             ) : (
-              newsDetail &&
-              comments.map((item, index) => (
-                <CommentsItem key={item.id} index={index} {...item}/>
-              ))
+              newsDetail && comments.map((item) => <CommentsItem key={item.id} {...item} />)
             )}
           </CommentsBlock>
         </NewsDetailWrapper>

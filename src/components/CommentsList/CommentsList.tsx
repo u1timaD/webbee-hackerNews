@@ -1,7 +1,10 @@
+import { Item } from '../../Types/interface';
 import { StyledCommentIndex, StyledCommentsItem, StyledCommentsList, StyledCommentText } from './CommentsList.styled';
 
-const CommentsList = ({ comments, item }) => {
-  console.log(item);
+interface CommentsListProps {
+  comments: Item[];
+}
+const CommentsList = ({ comments }: CommentsListProps) => {
   return (
     <>
       <StyledCommentsList>

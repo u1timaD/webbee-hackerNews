@@ -14,7 +14,7 @@
       "time": 1489085547,
       "time_ago": "7 years ago",
       "type": "comment",
-      "content": "<p>This looks like a worthy competitor to AWS Lambda, but I&#x27;m disappointed by the unalterable limit of 400 concurrent invocations of a function. (The &quot;Quotas&quot; page says &quot;Max concurrent functions&quot; is 400, with &quot;Can be increased&quot; as &quot;No.&quot; <a href=\"https:&#x2F;&#x2F;cloud.google.com&#x2F;functions&#x2F;quotas\" rel=\"nofollow\">https:&#x2F;&#x2F;cloud.google.com&#x2F;functions&#x2F;quotas</a>)<p>One of the cool things about AWS Lambda is that you can use it as a short-term supercomputer with thousands of threads. We (Stanford&#x2F;UCSD ExCamera) are using AWS Lambda to do massively parallel low-latency video encoding with 4,000+ concurrent threads. Our colleagues at U.C. Berkeley who built PyWren are doing machine learning on Lambda with similar numbers of threads. AWS has been encouraging to us for these kind of workloads, even if they aren&#x27;t what Amazon initially envisioned.<p>So a hard limit of 400 (that can&#x27;t be increased) would be a real bummer. I wonder if we can get around this by defining 20 identical functions and then invoking each one 400 times in parallel...",
+      "content": "<p>This looks like a worthy competitor to AWS Lambda, but I&#x27;m disappointed by the unalterable limit of 400 concurrent invocations of a function. (The &quot;Quotas&quot; pages says &quot;Max concurrent functions&quot; is 400, with &quot;Can be increased&quot; as &quot;No.&quot; <a href=\"https:&#x2F;&#x2F;cloud.google.com&#x2F;functions&#x2F;quotas\" rel=\"nofollow\">https:&#x2F;&#x2F;cloud.google.com&#x2F;functions&#x2F;quotas</a>)<p>One of the cool things about AWS Lambda is that you can use it as a short-term supercomputer with thousands of threads. We (Stanford&#x2F;UCSD ExCamera) are using AWS Lambda to do massively parallel low-latency video encoding with 4,000+ concurrent threads. Our colleagues at U.C. Berkeley who built PyWren are doing machine learning on Lambda with similar numbers of threads. AWS has been encouraging to us for these kind of workloads, even if they aren&#x27;t what Amazon initially envisioned.<p>So a hard limit of 400 (that can&#x27;t be increased) would be a real bummer. I wonder if we can get around this by defining 20 identical functions and then invoking each one 400 times in parallel...",
       "comments": [
         {
           "id": 13831973,
@@ -1048,7 +1048,7 @@
           "time": 1489084612,
           "time_ago": "7 years ago",
           "type": "comment",
-          "content": "<p>1 - You can see our pricing page at <a href=\"https:&#x2F;&#x2F;firebase.google.com&#x2F;pricing&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;firebase.google.com&#x2F;pricing&#x2F;</a><p>2 - The timeout is configurable in the Google Cloud console with a maximum timeout of 9m<p>3 - The official tooling is what the &quot;for Firebase&quot; part is all about. We&#x27;ve designed an SDK for Firebase users and integrated it tightly with our CLI. We&#x27;ll be giving an overview of these features at <a href=\"https:&#x2F;&#x2F;cloudnext.withgoogle.com&#x2F;schedule#target=google-cloud-functions-and-firebase-e201ac5d-ed02-47a9-af78-33e23368a26c\" rel=\"nofollow\">https:&#x2F;&#x2F;cloudnext.withgoogle.com&#x2F;schedule#target=google-clou...</a>",
+          "content": "<p>1 - You can see our pricing pages at <a href=\"https:&#x2F;&#x2F;firebase.google.com&#x2F;pricing&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;firebase.google.com&#x2F;pricing&#x2F;</a><p>2 - The timeout is configurable in the Google Cloud console with a maximum timeout of 9m<p>3 - The official tooling is what the &quot;for Firebase&quot; part is all about. We&#x27;ve designed an SDK for Firebase users and integrated it tightly with our CLI. We&#x27;ll be giving an overview of these features at <a href=\"https:&#x2F;&#x2F;cloudnext.withgoogle.com&#x2F;schedule#target=google-cloud-functions-and-firebase-e201ac5d-ed02-47a9-af78-33e23368a26c\" rel=\"nofollow\">https:&#x2F;&#x2F;cloudnext.withgoogle.com&#x2F;schedule#target=google-clou...</a>",
           "comments": [],
           "comments_count": 0,
           "level": 1,
@@ -1068,7 +1068,7 @@
               "time": 1489086091,
               "time_ago": "7 years ago",
               "type": "comment",
-              "content": "<p>Ah, sadly no outbound networking requests on the free tier.  In my opinion that is a critical use case for a tool like this.<p>This could be a non-starter if there&#x27;s really no way try it for outbound requests without paying $25 &#x2F; month.  Hopefully I&#x27;m misunderstanding the pricing page.<p>Edit: The fine print for the custom plan:<p>&gt; 3 The Spark plan only allows outbound network requests to Google owned services. On the Blaze plan, Cloud Functions provides a perpetual free tier. The first 2,000,000 invocations, 400,000 GB-sec, 200,000 CPU-sec, and 5GB of Internet egress traffic is provided for free each month. You are only charged on usage past this free allotment. Pricing is based on total number of invocations, and compute time. Compute time is variable based on the amount of memory and CPU provisioned for a function. For more information, see Cloud Functions Pricing.",
+              "content": "<p>Ah, sadly no outbound networking requests on the free tier.  In my opinion that is a critical use case for a tool like this.<p>This could be a non-starter if there&#x27;s really no way try it for outbound requests without paying $25 &#x2F; month.  Hopefully I&#x27;m misunderstanding the pricing pages.<p>Edit: The fine print for the custom plan:<p>&gt; 3 The Spark plan only allows outbound network requests to Google owned services. On the Blaze plan, Cloud Functions provides a perpetual free tier. The first 2,000,000 invocations, 400,000 GB-sec, 200,000 CPU-sec, and 5GB of Internet egress traffic is provided for free each month. You are only charged on usage past this free allotment. Pricing is based on total number of invocations, and compute time. Compute time is variable based on the amount of memory and CPU provisioned for a function. For more information, see Cloud Functions Pricing.",
               "comments": [
                 {
                   "id": 13832077,
@@ -1084,7 +1084,7 @@
                       "time": 1489091341,
                       "time_ago": "7 years ago",
                       "type": "comment",
-                      "content": "<p>Oh, so if my app is currently under all the Free tier quotas for DB&#x2F;Hosting&#x2F;Storage&#x2F;transfer, I could sign up for Blaze and my cost would be $0? I didn&#x27;t realize that, the pricing page doesn&#x27;t seem to make that clear to me.<p>Edit: Actually, if I&#x27;m exploring this price calculator right, it appears that there is no free tier for DB if you are on Blaze, only a free tier for Functions.  Which suggests I should leave my Free tier plan as is, set up a second project that only has Functions that make external calls in it, sign that up for Blaze, and call those functions from my free tier functions... Convoluted, but hey, it&#x27;d be free.",
+                      "content": "<p>Oh, so if my app is currently under all the Free tier quotas for DB&#x2F;Hosting&#x2F;Storage&#x2F;transfer, I could sign up for Blaze and my cost would be $0? I didn&#x27;t realize that, the pricing pages doesn&#x27;t seem to make that clear to me.<p>Edit: Actually, if I&#x27;m exploring this price calculator right, it appears that there is no free tier for DB if you are on Blaze, only a free tier for Functions.  Which suggests I should leave my Free tier plan as is, set up a second project that only has Functions that make external calls in it, sign that up for Blaze, and call those functions from my free tier functions... Convoluted, but hey, it&#x27;d be free.",
                       "comments": [],
                       "comments_count": 0,
                       "level": 4,
@@ -1096,7 +1096,7 @@
                       "time": 1489103385,
                       "time_ago": "7 years ago",
                       "type": "comment",
-                      "content": "<p>That should really be clarified on the pricing page because I think many people misunderstood that",
+                      "content": "<p>That should really be clarified on the pricing pages because I think many people misunderstood that",
                       "comments": [],
                       "comments_count": 0,
                       "level": 4,

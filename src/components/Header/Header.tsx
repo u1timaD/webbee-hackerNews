@@ -10,8 +10,12 @@ import {
   ButtonWrapper,
 } from './Header.styled';
 import { Link } from 'react-router-dom';
+import { usePagesStore } from '../../zustand/store';
 
 const Header = () => {
+  const { homePages } = usePagesStore();
+
+  console.log('Перерендер Хедера');
 
   return (
     <HeaderStyled component="header">
@@ -21,17 +25,17 @@ const Header = () => {
             <h1>HACKER NEWS</h1>
           </HeaderLogoLink>
           <ButtonWrapper>
-
-            <Link to="/">
-              <ReturnButton>
-                <KeyboardReturnIcon fontSize="large" />
-              </ReturnButton>
-            </Link>
+            {homePages && (
+              <Link to="/">
+                <ReturnButton>
+                  <KeyboardReturnIcon fontSize="large" />
+                </ReturnButton>
+              </Link>
+            )}
 
             <UpdateButton>
               <UpdateIcon fontSize="large" />
             </UpdateButton>
-            
           </ButtonWrapper>
         </HeaderWrapper>
       </Container>
