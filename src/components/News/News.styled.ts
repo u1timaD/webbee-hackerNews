@@ -68,7 +68,7 @@ export const NewsInfo = styled(Box)`
 
 export const NewsRating = styled(Typography)`
   display: flex;
-  padding: 5px 10px;
+  padding: 6px 10px;
   background-color: #000000;
   color: #ffffff;
   font-size: 12px;

@@ -1,4 +1,4 @@
-import { Button, Collapse, Link, List, ListItem, Typography } from '@mui/material';
+import { Button, Collapse, Typography } from '@mui/material';
 import styled from '@emotion/styled';
 import { Box } from '@mui/material';
 
@@ -12,6 +12,7 @@ export const NewsDetailWrapper = styled(Box)`
 `;
 
 export const NewsBlock = styled(Box)`
+  width: 100%;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -22,7 +23,7 @@ export const NewsBlock = styled(Box)`
     1px 3px 6px 0px #74939c4d,
     0px 0px 1px 0px #74939c80;
   overflow: hidden;
-  padding: 25px 20px;
+  padding: 26px 20px;
 `;
 
 export const NewsDescription = styled(Typography)`
@@ -58,10 +59,10 @@ export const NewsTitle = styled(Typography)`
   font-size: 26px;
   text-transform: uppercase;
   font-weight: 700;
+  margin-right: auto;
 `;
 
 export const NewsLink = styled(Button)`
-  margin-left: auto;
   min-width: 132px;
   height: 38px;
 `;
@@ -70,16 +71,13 @@ export const CommentsCountBlock = styled(Box)`
   display: flex;
   color: #1565c0;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   margin-left: auto;
 `;
 
 export const CommentsCountText = styled(Typography)``;
 
-export const CommentsBlock = styled(List)`
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+export const StyledCollapse = styled(Collapse)`
+  width: 100%;
+  border-left: 1px solid rgba(211, 211, 211, 0.8);
 `;

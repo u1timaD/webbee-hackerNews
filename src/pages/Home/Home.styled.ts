@@ -1,4 +1,4 @@
-import { Link, List, ListItem, Typography } from '@mui/material';
+import { List } from '@mui/material';
 import styled from '@emotion/styled';
 import { Box } from '@mui/material';
 

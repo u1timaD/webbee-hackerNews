@@ -1,37 +1,31 @@
 import { NewsList, NewsSection } from './Home.styled';
-import { useEffect, useMemo } from 'react';
-import { useNewsStore, usePagesStore } from '../../zustand/store';
-import { sortNewsByTime } from '../../utils/utils';
-import HomeNews from '../../components/HomeNews/HomeNews';
+import { useEffect } from 'react';
+import { useNewsStore } from '../../zustand/store';
+import { PAGE_UPDATE_TIME } from '../../utils/constants';
+import Loading from '../../components/Loading/Loading';
+import News from '../../components/News/News';
 
 const Home = () => {
-  const { news, fetchNews, loading, error } = useNewsStore();
-  const { homePagesChecked } = usePagesStore();
-
-  console.log(news);
-
-  console.log('ререндер главной страницы');
+  const { news, loading, error, fetchAllNews } = useNewsStore();
 
   useEffect(() => {
-    fetchNews();
-    homePagesChecked(false);
-  }, [fetchNews]);
+    fetchAllNews();
+    const interval = setInterval(() => {
+      fetchAllNews();
+    }, PAGE_UPDATE_TIME);
 
-  const dataNewsSorted = useMemo(() => {
-    if (!news || !Array.isArray(news)) return [];
-    return sortNewsByTime(news);
-  }, [news]);
+    return () => clearInterval(interval);
+  }, [fetchAllNews]);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  useEffect(() => {
+    fetchAllNews();
+  }, []);
+
+  if (error) return <div>Повторите запрос позже</div>;
 
   return (
     <NewsSection component="section">
-      <NewsList>
-        {dataNewsSorted.map((item) => (
-          <HomeNews key={item.id} {...item} />
-        ))}
-      </NewsList>
+      <NewsList>{loading ? <Loading count={10} /> : news.map((item) => <News key={item.id} {...item} />)}</NewsList>
     </NewsSection>
   );
 };

@@ -1,21 +1,13 @@
 import { Container } from '@mui/material';
-import UpdateIcon from '@mui/icons-material/Update';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
-import {
-  HeaderLogoLink,
-  HeaderWrapper,
-  UpdateButton,
-  HeaderStyled,
-  ReturnButton,
-  ButtonWrapper,
-} from './Header.styled';
-import { Link } from 'react-router-dom';
-import { usePagesStore } from '../../zustand/store';
+import { HeaderLogoLink, HeaderWrapper, HeaderStyled, ReturnButton, ButtonWrapper } from './Header.styled';
+import { Link, useLocation } from 'react-router-dom';
+
+import UpdateButton from '../UpdateButton/UpdateButton';
+import { pages } from '../../utils/constants';
 
 const Header = () => {
-  const { homePages } = usePagesStore();
-
-  console.log('Перерендер Хедера');
+  const location = useLocation();
 
   return (
     <HeaderStyled component="header">
@@ -25,17 +17,14 @@ const Header = () => {
             <h1>HACKER NEWS</h1>
           </HeaderLogoLink>
           <ButtonWrapper>
-            {homePages && (
+            {location.pathname !== pages.home && (
               <Link to="/">
                 <ReturnButton>
                   <KeyboardReturnIcon fontSize="large" />
                 </ReturnButton>
               </Link>
             )}
-
-            <UpdateButton>
-              <UpdateIcon fontSize="large" />
-            </UpdateButton>
+            <UpdateButton />
           </ButtonWrapper>
         </HeaderWrapper>
       </Container>

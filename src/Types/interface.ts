@@ -11,7 +11,7 @@ export interface Item {
   type: string;
   url?: string;
   domain?: string;
-  comments: Item[]; 
+  comments: Item[];
   level: number;
   comments_count: number;
 }

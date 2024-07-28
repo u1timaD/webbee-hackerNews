@@ -29,15 +29,6 @@ export const HeaderWrapper = styled(Box)`
   justify-content: space-between;
 `;
 
-export const UpdateButton = styled(IconButton)`
-  width: 50px;
-  height: 50px;
-  color: #fdfefe;
-  &:hover {
-    background-color: #0044cc;
-  }
-`;
-
 export const ReturnButton = styled(IconButton)`
   width: 50px;
   height: 50px;
