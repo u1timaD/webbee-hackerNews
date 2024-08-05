@@ -16,17 +16,14 @@ export const NewsBlock = styled(Box)`
   text-align: left;
   padding: 0;
   gap: ${({ theme }) => theme.spacing(3)};
-  background-color: #fdfefe;
-  box-shadow:
-    1px 3px 6px 0px #74939c4d,
-    0px 0px 1px 0px #74939c80;
+  background-color: ${({ theme }) => theme.palette.backgroundColors.news};
+  box-shadow: ${({ theme }) => theme.palette.backgroundShadows.comment};
   overflow: hidden;
   padding: ${({ theme }) => theme.spacing(3, 2)};
 `;
 
 export const NewsDescription = styled(Typography)`
   font-weight: 400;
-  color: #777777;
 `;
 
 export const NewsInfo = styled(Box)`
@@ -44,7 +41,7 @@ export const NewsAuthor = styled(Typography)`
 export const NewsDate = styled(Typography)`
   font-size: 18px;
   font-weight: 400;
-  color: #9c9c9c;
+  color: ${({ theme }) => theme.palette.text.secondary};
   text-transform: lowercase;
 `;
 
@@ -67,7 +64,7 @@ export const NewsLink = styled(Button)`
 
 export const CommentsCountBlock = styled(Box)`
   display: flex;
-  color: #1565c0;
+  color: ${({ theme }) => theme.palette.info.dark};
   align-items: center;
   gap: ${({ theme }) => theme.spacing(1)};
   margin-left: auto;

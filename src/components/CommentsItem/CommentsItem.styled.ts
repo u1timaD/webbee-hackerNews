@@ -15,12 +15,10 @@ export const StyledCommentsBlock = styled(Box)`
   gap: ${({ theme }) => theme.spacing(1)};
   flex-direction: column;
   cursor: pointer;
-  background-color: #d9e5fe;
+  background-color: ${({ theme }) => theme.palette.backgroundColors.comment};
   padding: ${({ theme }) => theme.spacing(3)};
   border-radius: ${({ theme }) => theme.spacing(1)};
-  box-shadow:
-    1px 3px 6px 0px #74939c4d,
-    0px 0px 1px 0px #74939c80;
+  box-shadow: ${({ theme }) => theme.palette.backgroundShadows.comment};
   width: 100%;
 `;
 
@@ -32,5 +30,5 @@ export const StyledCommentsUser = styled(Typography)`
 
 export const StyledCommentsTime = styled(Typography)`
   font-size: 14px;
-  color: #9c9c9c;
+  color: ${({ theme }) => theme.palette.text.secondary};
 `;

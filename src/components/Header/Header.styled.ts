@@ -10,14 +10,13 @@ export const HeaderStyled = styled(Box)`
   justify-content: center;
   height: 100px;
   margin-bottom: ${({ theme }) => theme.spacing(4)};
-  color: #fdfefe;
-  background: linear-gradient(to right, #0044cc, #0066ff);
-  box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.6);
+  background: ${({ theme }) => theme.palette.backgroundGradient.header};
+  box-shadow: ${({ theme }) => theme.palette.backgroundShadows.header};
 `;
 
 export const HeaderLogoLink = styled(Link)`
   text-decoration: none;
-  color: #fdfefe;
+  color: ${({ theme }) => theme.palette.primary.main};
 `;
 
 export const HeaderWrapper = styled(Box)`
@@ -30,9 +29,10 @@ export const HeaderWrapper = styled(Box)`
 export const ReturnButton = styled(IconButton)`
   width: 50px;
   height: 50px;
-  color: #fdfefe;
+  color: ${({ theme }) => theme.palette.primary.main};
+
   &:hover {
-    background-color: #0044cc;
+    background-color: ${({ theme }) => theme.palette.info.light};
   }
 `;
 

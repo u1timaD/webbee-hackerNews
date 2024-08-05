@@ -9,10 +9,8 @@ export const NewsItem = styled(ListItem)`
   align-items: start;
   text-align: left;
   padding: 0;
-  background-color: #fdfefe;
-  box-shadow:
-    1px 3px 6px 0px #74939c4d,
-    0px 0px 1px 0px #74939c80;
+  background-color: ${({ theme }) => theme.palette.backgroundColors.news};
+  box-shadow: ${({ theme }) => theme.palette.backgroundShadows.comment};
   overflow: hidden;
 `;
 
@@ -31,7 +29,7 @@ export const NewsLink = styled(Link)`
     height: 34px;
     right: -12px;
     top: 14px;
-    background-color: #516eaa;
+    background-color: ${({ theme }) => theme.palette.info.dark};
     transition: all 0.3s;
   }
 
@@ -42,7 +40,7 @@ export const NewsLink = styled(Link)`
     height: 34px;
     right: -12px;
     top: 56px;
-    background-color: #28c3fb;
+    background-color: ${({ theme }) => theme.palette.info.main};
     transition: all 0.3s;
   }
 
@@ -69,8 +67,8 @@ export const NewsInfo = styled(Box)`
 export const NewsRating = styled(Typography)`
   display: flex;
   padding: ${({ theme }) => theme.spacing(1, 2)};
-  background-color: #000000;
-  color: #ffffff;
+  background-color: ${({ theme }) => theme.palette.primary.dark};
+  color: ${({ theme }) => theme.palette.primary.main};
   font-size: 12px;
   font-weight: 600;
 `;
@@ -84,6 +82,6 @@ export const NewsAuthor = styled(Typography)`
 export const NewsDate = styled(Typography)`
   font-size: 12px;
   font-weight: 400;
-  color: #9c9c9c;
+  color: ${({ theme }) => theme.palette.text.secondary};
   text-transform: lowercase;
 `;
