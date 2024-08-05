@@ -1,12 +1,10 @@
 import CommentIcon from '@mui/icons-material/Comment';
 import {
   CommentsCountBlock,
-  CommentsCountText,
   NewsAuthor,
   NewsBlock,
   NewsDate,
   NewsInfo,
-  NewsDetailSection,
   NewsDetailWrapper,
   NewsTitle,
   NewTitleWrapper,
@@ -14,13 +12,13 @@ import {
 } from './NewsDetail.styled';
 
 import { useEffect } from 'react';
-import { useNewsDetailStore } from '../../zustand/store';
+import { useNewsDetailStore } from '../../Store/newsDetail';
 import { useParams } from 'react-router-dom';
-import { formatTime } from '../../utils/utils';
+import { formatTime } from '../../utils/dateUtils';
 import { NO_USER_NAME, PAGE_UPDATE_TIME } from '../../utils/constants';
 import Loading from '../../components/Loading/Loading';
 import NestedComments from '../../components/NestedComments/NestedComments';
-import { Collapse } from '@mui/material';
+import { Box, Collapse, Typography } from '@mui/material';
 
 const NewsDetail = () => {
   const { id } = useParams();
@@ -39,31 +37,32 @@ const NewsDetail = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <>
-      <NewsDetailSection component="section">
-        <NewsDetailWrapper>
-          <NewsBlock>
-            <NewTitleWrapper>
-              <NewsTitle variant="h2">{newsDetail?.title}</NewsTitle>
-              <a href={newsDetail?.url} target="_blank">
-                <NewsLink variant="contained">Link to news</NewsLink>
-              </a>
-            </NewTitleWrapper>
-            <NewsInfo>
-              <NewsAuthor>{newsDetail?.user ?? NO_USER_NAME}</NewsAuthor>
-              <NewsDate>{newsDetail?.time && formatTime(newsDetail?.time)}</NewsDate>
-              <NewsDate>{newsDetail?.time_ago}</NewsDate>
-              <CommentsCountBlock>
-                <CommentsCountText>{newsDetail?.comments_count}</CommentsCountText>
-                <CommentIcon />
-              </CommentsCountBlock>
-            </NewsInfo>
-          </NewsBlock>
-
-          <Collapse in>{comments && <NestedComments key={id} comments={comments} />}</Collapse>
-        </NewsDetailWrapper>
-      </NewsDetailSection>
-    </>
+    <Box component="section">
+      <NewsDetailWrapper>
+        <NewsBlock>
+          <NewTitleWrapper>
+            <NewsTitle variant="h2">{newsDetail?.title}</NewsTitle>
+            <a href={newsDetail?.url} target="_blank">
+              <NewsLink variant="contained">Link to news</NewsLink>
+            </a>
+          </NewTitleWrapper>
+          <NewsInfo>
+            <NewsAuthor>{newsDetail?.user ?? NO_USER_NAME}</NewsAuthor>
+            <NewsDate>{newsDetail?.time && formatTime(newsDetail?.time)}</NewsDate>
+            <NewsDate>{newsDetail?.time_ago}</NewsDate>
+            <CommentsCountBlock>
+              <Typography>{newsDetail?.comments_count}</Typography>
+              <CommentIcon />
+            </CommentsCountBlock>
+          </NewsInfo>
+        </NewsBlock>
+        {comments && (
+          <Collapse in>
+            <NestedComments key={id} comments={comments} />
+          </Collapse>
+        )}
+      </NewsDetailWrapper>
+    </Box>
   );
 };
 

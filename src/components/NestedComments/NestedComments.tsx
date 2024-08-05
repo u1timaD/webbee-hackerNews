@@ -1,9 +1,10 @@
-import { Item } from '../../Types/interface';
-import { StyledCommentsItem, StyledCommentsList } from './NestedComments.styled';
+import { CommentProps } from '../../Types/interface';
+
 import CommentsItem from '../CommentsItem/CommentsItem';
+import { StyledCommentsItem, StyledCommentsList } from './NestedComments.styled';
 
 interface CommentsListProps {
-  comments: Item[];
+  comments: CommentProps[];
 }
 const NestedComments = ({ comments }: CommentsListProps) => {
   return (

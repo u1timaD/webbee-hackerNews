@@ -1,9 +1,10 @@
-import { FeedItem } from '../../Types/interface';
+import { NewsProps } from '../../Types/interface';
 import { NO_USER_NAME } from '../../utils/constants';
-import { formatTime } from '../../utils/utils';
+import { formatTime } from '../../utils/dateUtils';
+
 import { NewsAuthor, NewsDate, NewsInfo, NewsItem, NewsLink, NewsRating, NewsTitle } from './News.styled';
 
-const News = ({ id, title, time, time_ago, user, points }: FeedItem) => {
+const News = ({ id, title, time, time_ago, user, points }: NewsProps) => {
   return (
     <NewsItem>
       <NewsLink to={`/news/${id}`}>

@@ -2,12 +2,10 @@ import { Button, Collapse, Typography } from '@mui/material';
 import styled from '@emotion/styled';
 import { Box } from '@mui/material';
 
-export const NewsDetailSection = styled(Box)``;
-
 export const NewsDetailWrapper = styled(Box)`
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: ${({ theme }) => theme.spacing(5)};
   padding: 0;
 `;
 
@@ -17,13 +15,13 @@ export const NewsBlock = styled(Box)`
   flex-direction: column;
   text-align: left;
   padding: 0;
-  gap: 20px;
+  gap: ${({ theme }) => theme.spacing(3)};
   background-color: #fdfefe;
   box-shadow:
     1px 3px 6px 0px #74939c4d,
     0px 0px 1px 0px #74939c80;
   overflow: hidden;
-  padding: 26px 20px;
+  padding: ${({ theme }) => theme.spacing(3, 2)};
 `;
 
 export const NewsDescription = styled(Typography)`
@@ -34,7 +32,7 @@ export const NewsDescription = styled(Typography)`
 export const NewsInfo = styled(Box)`
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: ${({ theme }) => theme.spacing(2)};
 `;
 
 export const NewsAuthor = styled(Typography)`
@@ -52,7 +50,7 @@ export const NewsDate = styled(Typography)`
 
 export const NewTitleWrapper = styled(Box)`
   display: flex;
-  gap: 20px;
+  gap: ${({ theme }) => theme.spacing(3)};
 `;
 
 export const NewsTitle = styled(Typography)`
@@ -71,11 +69,9 @@ export const CommentsCountBlock = styled(Box)`
   display: flex;
   color: #1565c0;
   align-items: center;
-  gap: 6px;
+  gap: ${({ theme }) => theme.spacing(1)};
   margin-left: auto;
 `;
-
-export const CommentsCountText = styled(Typography)``;
 
 export const StyledCollapse = styled(Collapse)`
   width: 100%;

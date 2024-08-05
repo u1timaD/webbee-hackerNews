@@ -2,19 +2,20 @@ import { StyledCommentsBlock, StyledCommentsItem, StyledCommentsTime, StyledComm
 import CommentIcon from '@mui/icons-material/Comment';
 import CommentsList from '../NestedComments/NestedComments';
 import { useState } from 'react';
-import { Item } from '../../Types/interface';
-import { checkDead } from '../../utils/utils';
+import { CommentProps } from '../../Types/interface';
 import { Box } from '@mui/system';
-import { Collapse, Typography } from '@mui/material';
-import { CommentsCountBlock, CommentsCountText, StyledCollapse } from '../../pages/NewsDetail/NewsDetail.styled';
+import { Typography } from '@mui/material';
+import { CommentsCountBlock, StyledCollapse } from '../../pages/NewsDetail/NewsDetail.styled';
 
-const CommentsItem = (comment: Item) => {
+const CommentsItem = (comment: CommentProps) => {
   const [open, setOpen] = useState(false);
   const handleClick = () => {
-    comment.comments.length !== 0 && setOpen(!open);
+    setOpen((prevOpen) => {
+      return comment.comments.length !== 0 ? !prevOpen : prevOpen;
+    });
   };
 
-  const isDead = checkDead(comment);
+  const isCommentRemoved = comment.deleted || comment.dead;
 
   return (
     <StyledCommentsItem key={comment.id}>
@@ -25,17 +26,17 @@ const CommentsItem = (comment: Item) => {
         </Box>
 
         <Typography
-          color={isDead ? '#9c9c9c' : '#000000'}
+          color={isCommentRemoved ? '#9c9c9c' : '#000000'}
           onClick={handleClick}
-          dangerouslySetInnerHTML={{ __html: isDead ? 'комментарий удален' : comment.content }}
+          dangerouslySetInnerHTML={{ __html: isCommentRemoved ? 'комментарий удален' : comment.content }}
         />
         <CommentsCountBlock>
-          <CommentsCountText>{comment.comments_count}</CommentsCountText>
+          <Typography>{comment.comments_count}</Typography>
           <CommentIcon />
         </CommentsCountBlock>
       </StyledCommentsBlock>
 
-      <StyledCollapse in={open} timeout="auto" unmountOnExit>
+      <StyledCollapse in={open} timeout="auto">
         {comment.comments && <CommentsList key={comment.id} comments={comment.comments} />}
       </StyledCollapse>
     </StyledCommentsItem>

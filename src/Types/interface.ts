@@ -1,4 +1,4 @@
-export interface Item {
+export interface CommentProps {
   id: number;
   title: string;
   points: number | null;
@@ -11,12 +11,12 @@ export interface Item {
   type: string;
   url?: string;
   domain?: string;
-  comments: Item[];
+  comments: CommentProps[];
   level: number;
   comments_count: number;
 }
 
-export interface FeedItem {
+export interface NewsProps {
   id: number;
   title: string;
   points?: number | null;

@@ -16,7 +16,7 @@
     "@mui/icons-material": "^5.16.4",
     "@mui/material": "^5.16.4",
     "axios": "^1.7.2",
-    "dayjs": "^1.11.12",
+    "date-fns": "^3.6.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.25.1",
@@ -39,7 +39,7 @@
     "eslint-plugin-react-refresh": "^0.4.7",
     "eslint-plugin-unicorn": "^54.0.0",
     "prettier": "^3.3.3",
-    "typescript": "^5.2.2",
+    "typescript": "^5.5.4",
     "vite": "^5.3.4"
   }
 }

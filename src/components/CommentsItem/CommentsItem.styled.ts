@@ -7,17 +7,17 @@ export const StyledCommentsItem = styled(ListItem)`
   align-items: start;
   padding: 0;
   margin: 0;
-  gap: 24px;
+  gap: ${({ theme }) => theme.spacing(3)};
 `;
 
 export const StyledCommentsBlock = styled(Box)`
   display: flex;
-  gap: 10px;
+  gap: ${({ theme }) => theme.spacing(1)};
   flex-direction: column;
   cursor: pointer;
   background-color: #d9e5fe;
-  padding: 20px 20px;
-  border-radius: 10px;
+  padding: ${({ theme }) => theme.spacing(3)};
+  border-radius: ${({ theme }) => theme.spacing(1)};
   box-shadow:
     1px 3px 6px 0px #74939c4d,
     0px 0px 1px 0px #74939c80;

@@ -6,7 +6,7 @@ export const StyledCommentsList = styled(List)`
   flex-direction: column;
   padding: 0;
   margin: 0;
-  gap: 20px;
+  gap: ${({ theme }) => theme.spacing(3)};
   width: 100%;
 `;
 
@@ -16,5 +16,5 @@ export const StyledCommentsItem = styled(ListItem)`
   align-items: start;
   padding: 0;
   margin: 0;
-  gap: 10px;
+  gap: ${({ theme }) => theme.spacing(1)};
 `;

@@ -1,5 +1,6 @@
 import { useLocation, useParams } from 'react-router-dom';
-import { useNewsDetailStore, useNewsStore } from '../../zustand/store';
+import { useNewsStore } from '../../Store/news';
+import { useNewsDetailStore } from '../../Store/newsDetail';
 import UpdateIcon from '@mui/icons-material/Update';
 import { StyledUpdateButton } from './UpdateButton.styled';
 import { pages } from '../../utils/constants';
@@ -11,8 +12,14 @@ const UpdateButton = () => {
   const { id } = useParams();
 
   const handleUpdate = () => {
-    location.pathname === pages.home && fetchAllNews();
-    location.pathname.includes(pages.news) && fetchNewsDetail(Number(id));
+    if (location.pathname === pages.home) {
+      fetchAllNews();
+      return;
+    }
+
+    if (location.pathname.includes(pages.news)) {
+      fetchNewsDetail(Number(id));
+    }
   };
 
   return (

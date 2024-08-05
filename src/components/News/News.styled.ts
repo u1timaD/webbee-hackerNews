@@ -21,7 +21,7 @@ export const NewsLink = styled(Link)`
   cursor: pointer;
   text-decoration: none;
   color: inherit;
-  padding: 25px 20px;
+  padding: ${({ theme }) => theme.spacing(3, 2)};
   width: 100%;
 
   &:after {
@@ -68,7 +68,7 @@ export const NewsInfo = styled(Box)`
 
 export const NewsRating = styled(Typography)`
   display: flex;
-  padding: 6px 10px;
+  padding: ${({ theme }) => theme.spacing(1, 2)};
   background-color: #000000;
   color: #ffffff;
   font-size: 12px;
