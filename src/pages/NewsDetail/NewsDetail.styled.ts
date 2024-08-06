@@ -5,7 +5,7 @@ import { Box } from '@mui/material';
 export const NewsDetailWrapper = styled(Box)`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.spacing(5)};
+  gap: ${({ theme }) => theme.spacing(3)};
   padding: 0;
 `;
 
@@ -23,7 +23,7 @@ export const NewsBlock = styled(Box)`
 `;
 
 export const NewsDescription = styled(Typography)`
-  font-weight: 400;
+  font-weight: ${({ theme }) => theme.typography.h3.fontWeight};
 `;
 
 export const NewsInfo = styled(Box)`
@@ -33,14 +33,14 @@ export const NewsInfo = styled(Box)`
 `;
 
 export const NewsAuthor = styled(Typography)`
-  font-size: 18px;
-  font-weight: 600;
+  font-size: ${({ theme }) => theme.typography.h2.fontSize};
+  font-weight: ${({ theme }) => theme.typography.h4.fontWeight};
   text-transform: lowercase;
 `;
 
 export const NewsDate = styled(Typography)`
-  font-size: 18px;
-  font-weight: 400;
+  font-size: ${({ theme }) => theme.typography.h2.fontSize};
+  font-weight: ${({ theme }) => theme.typography.h3.fontWeight};
   color: ${({ theme }) => theme.palette.text.secondary};
   text-transform: lowercase;
 `;
@@ -51,15 +51,30 @@ export const NewTitleWrapper = styled(Box)`
 `;
 
 export const NewsTitle = styled(Typography)`
-  font-size: 26px;
+  font-size: ${({ theme }) => theme.typography.h1.fontSize};
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: ${({ theme }) => theme.typography.h1.fontWeight};
   margin-right: auto;
 `;
 
 export const NewsLink = styled(Button)`
+  display: flex;
   min-width: 132px;
   height: 38px;
+  &:hover {
+    background-color: ${({ theme }) => theme.palette.info.dark};
+
+    a {
+      color: ${({ theme }) => theme.palette.primary.main};
+    }
+  }
+
+  & a {
+    box-sizing: border-box;
+    font-size: ${({ theme }) => theme.typography.h3.fontSize};
+    text-decoration: none;
+    color: inherit;
+  }
 `;
 
 export const CommentsCountBlock = styled(Box)`

@@ -38,6 +38,27 @@ declare module '@mui/material/styles' {
 }
 export const theme = createTheme({
   spacing: (factor: number) => `${factor * 8}px`,
+  typography: {
+    fontFamily: 'Roboto, Arial',
+    fontSize: 14,
+    fontWeightMedium: 600,
+    h1: {
+      fontSize: '26px',
+      fontWeight: 700,
+    },
+    h2: {
+      fontSize: '14px',
+      fontWeight: 700,
+    },
+    h3: {
+      fontSize: '12px',
+      fontWeight: 400,
+    },
+    h4: {
+      fontSize: '12px',
+      fontWeight: 600,
+    },
+  },
   palette: {
     primary: {
       main: '#fdfefe',
@@ -47,13 +68,12 @@ export const theme = createTheme({
       default: '#e9f3f6',
     },
     text: {
-      // primary: '',
       secondary: '#9c9c9c',
     },
     info: {
       main: '#28c3fb',
       dark: '#516eaa',
-      light: '#0044cc'
+      light: '#0044cc',
     },
     action: {
       hover: '#0044cc',

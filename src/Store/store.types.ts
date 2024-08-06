@@ -8,11 +8,11 @@ export interface LoadingAndErrorState {
 export interface NewsState extends LoadingAndErrorState {
   news: NewsProps[];
   URLs: string[];
-  fetchAllNews: () => Promise<void>;
+  fetchAllNews: (load: boolean) => Promise<void>;
 }
 
 export interface NewsDetailState extends LoadingAndErrorState {
   newsDetail: NewsProps | null;
   comments: CommentProps[];
-  fetchNewsDetail: (id: number) => Promise<void>;
+  fetchNewsDetail: (id: number, load: boolean) => Promise<void>;
 }

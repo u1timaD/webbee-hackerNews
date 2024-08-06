@@ -10,9 +10,9 @@ const Home = () => {
   const { news, loading, error, fetchAllNews } = useNewsStore();
 
   useEffect(() => {
-    fetchAllNews();
+    fetchAllNews(true);
     const interval = setInterval(() => {
-      fetchAllNews();
+      fetchAllNews(false);
     }, PAGE_UPDATE_TIME);
 
     return () => clearInterval(interval);

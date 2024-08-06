@@ -17,17 +17,17 @@ import { useParams } from 'react-router-dom';
 import { formatTime } from '../../utils/dateUtils';
 import { NO_USER_NAME, PAGE_UPDATE_TIME } from '../../utils/constants';
 import Loading from '../../components/Loading/Loading';
-import NestedComments from '../../components/NestedComments/NestedComments';
 import { Box, Collapse, Typography } from '@mui/material';
+import Comments from '../../components/Comments/Comments';
 
 const NewsDetail = () => {
   const { id } = useParams();
   const { newsDetail, comments, fetchNewsDetail, loading, error } = useNewsDetailStore();
 
   useEffect(() => {
-    fetchNewsDetail(Number(id));
+    fetchNewsDetail(Number(id), true);
     const interval = setInterval(() => {
-      fetchNewsDetail(Number(id));
+      fetchNewsDetail(Number(id), false);
     }, PAGE_UPDATE_TIME);
 
     return () => clearInterval(interval);
@@ -42,9 +42,12 @@ const NewsDetail = () => {
         <NewsBlock>
           <NewTitleWrapper>
             <NewsTitle variant="h2">{newsDetail?.title}</NewsTitle>
-            <a href={newsDetail?.url} target="_blank">
-              <NewsLink variant="contained">Link to news</NewsLink>
-            </a>
+
+            <NewsLink variant="contained">
+              <a href={newsDetail?.url} target="_blank">
+                Link to news
+              </a>
+            </NewsLink>
           </NewTitleWrapper>
           <NewsInfo>
             <NewsAuthor>{newsDetail?.user ?? NO_USER_NAME}</NewsAuthor>
@@ -58,7 +61,7 @@ const NewsDetail = () => {
         </NewsBlock>
         {comments && (
           <Collapse in>
-            <NestedComments key={id} comments={comments} />
+            <Comments key={id} comments={comments} />
           </Collapse>
         )}
       </NewsDetailWrapper>

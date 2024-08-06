@@ -52,16 +52,16 @@ export const NewsLink = styled(Link)`
 `;
 
 export const NewsTitle = styled(Typography)`
-  font-size: 26px;
+  font-size: ${({ theme }) => theme.typography.h1.fontSize};
+  font-weight: ${({ theme }) => theme.typography.h1.fontWeight};
   text-transform: uppercase;
-  margin-bottom: 10px;
-  font-weight: 700;
+  margin-bottom: ${({ theme }) => theme.spacing(1)};
 `;
 
 export const NewsInfo = styled(Box)`
   display: flex;
   align-items: end;
-  gap: 16px;
+  gap: ${({ theme }) => theme.spacing(2)};
 `;
 
 export const NewsRating = styled(Typography)`
@@ -69,19 +69,19 @@ export const NewsRating = styled(Typography)`
   padding: ${({ theme }) => theme.spacing(1, 2)};
   background-color: ${({ theme }) => theme.palette.primary.dark};
   color: ${({ theme }) => theme.palette.primary.main};
-  font-size: 12px;
-  font-weight: 600;
+  font-size: ${({ theme }) => theme.typography.h3.fontSize};
+  font-weight: ${({ theme }) => theme.typography.h4.fontWeight};
 `;
 
 export const NewsAuthor = styled(Typography)`
-  font-size: 12px;
-  font-weight: 600;
+  font-size: ${({ theme }) => theme.typography.h3.fontSize};
+  font-weight: ${({ theme }) => theme.typography.h4.fontWeight};
   text-transform: lowercase;
 `;
 
 export const NewsDate = styled(Typography)`
-  font-size: 12px;
-  font-weight: 400;
+  font-size: ${({ theme }) => theme.typography.h3.fontSize};
+  font-weight: ${({ theme }) => theme.typography.h3.fontWeight};
   color: ${({ theme }) => theme.palette.text.secondary};
   text-transform: lowercase;
 `;

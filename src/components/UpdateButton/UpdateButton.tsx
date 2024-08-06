@@ -13,12 +13,12 @@ const UpdateButton = () => {
 
   const handleUpdate = () => {
     if (location.pathname === pages.home) {
-      fetchAllNews();
+      fetchAllNews(true);
       return;
     }
 
     if (location.pathname.includes(pages.news)) {
-      fetchNewsDetail(Number(id));
+      fetchNewsDetail(Number(id), true);
     }
   };
 
