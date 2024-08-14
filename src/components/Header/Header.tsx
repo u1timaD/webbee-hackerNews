@@ -1,4 +1,4 @@
-import { Container } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import { HeaderLogoLink, HeaderWrapper, HeaderStyled, ReturnButton, ButtonWrapper } from './Header.styled';
 import { Link, useLocation } from 'react-router-dom';
@@ -14,7 +14,7 @@ const Header = () => {
       <Container>
         <HeaderWrapper>
           <HeaderLogoLink to="/">
-            <h1>HACKER NEWS</h1>
+            <Typography variant="h1">HACKER NEWS</Typography>
           </HeaderLogoLink>
           <ButtonWrapper>
             {location.pathname !== pages.home && (

@@ -42,11 +42,10 @@ export const StyledCommentsBlock = styled(Box)`
   width: 100%;
 `;
 
-export const StyledCommentWrapper = styled(Button)``;
 export const StyledToggleComments = styled(Button)`
   color: ${({ theme }) => theme.palette.info.dark};
   padding: 0;
   width: fit-content;
   align-self: flex-end;
-  font-size: ${({ theme }) => theme.typography.h3.fontSize};
+  font-size: ${({ theme }) => theme.typography.h4.fontSize};
 `;

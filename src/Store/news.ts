@@ -2,7 +2,8 @@ import { create } from 'zustand';
 import axios from 'axios';
 import { sortNewsByTime } from '../utils/newsUtils';
 import { NewsState } from './store.types';
-import isEqual from 'lodash.isequal';
+import equal from 'fast-deep-equal';
+import { NEWS_URL } from '../utils/constants';
 
 const fetchData = async (URL: string) => {
   try {
@@ -17,15 +18,10 @@ export const useNewsStore = create<NewsState>((set, get) => ({
   news: [],
   loading: false,
   error: null,
-  URLs: [
-    'https://api.hnpwa.com/v0/newest/1.json',
-    'https://api.hnpwa.com/v0/newest/2.json',
-    'https://api.hnpwa.com/v0/newest/3.json',
-    'https://api.hnpwa.com/v0/newest/4.json',
-  ],
+  URLs: NEWS_URL,
 
-  fetchAllNews: async (load) => {
-    if (load) {
+  fetchAllNews: async (showLoader) => {
+    if (showLoader) {
       set({ loading: true, error: null });
     }
 
@@ -34,16 +30,13 @@ export const useNewsStore = create<NewsState>((set, get) => ({
       const newsResponses = await Promise.all(URLs.map(fetchData));
       const allNews = sortNewsByTime(newsResponses.flat()).slice(0, 100);
 
-      if (load) {
-        set({ news: allNews, loading: false });
-      }
-
-      if (!isEqual(news, allNews)) {
-        set({ news: [], loading: true });
-        set({ news: allNews, loading: false });
+      if (!equal(news, allNews)) {
+        set({ news: allNews });
       }
     } catch (error) {
-      set({ error: error instanceof Error ? error.message : 'Unknown error', loading: false });
+      set({ error: error instanceof Error ? error.message : 'Unknown error' });
+    } finally {
+      if (showLoader) set({ loading: false });
     }
   },
 }));

@@ -1,6 +1,5 @@
-import { Button, Collapse, Typography } from '@mui/material';
+import { Button, Collapse, Typography, Box } from '@mui/material';
 import styled from '@emotion/styled';
-import { Box } from '@mui/material';
 
 export const NewsDetailWrapper = styled(Box)`
   display: flex;
@@ -23,7 +22,7 @@ export const NewsBlock = styled(Box)`
 `;
 
 export const NewsDescription = styled(Typography)`
-  font-weight: ${({ theme }) => theme.typography.h3.fontWeight};
+  font-weight: ${({ theme }) => theme.typography.h4.fontWeight};
 `;
 
 export const NewsInfo = styled(Box)`
@@ -33,14 +32,14 @@ export const NewsInfo = styled(Box)`
 `;
 
 export const NewsAuthor = styled(Typography)`
-  font-size: ${({ theme }) => theme.typography.h2.fontSize};
-  font-weight: ${({ theme }) => theme.typography.h4.fontWeight};
+  font-size: ${({ theme }) => theme.typography.h3.fontSize};
+  font-weight: ${({ theme }) => theme.typography.h5.fontWeight};
   text-transform: lowercase;
 `;
 
 export const NewsDate = styled(Typography)`
-  font-size: ${({ theme }) => theme.typography.h2.fontSize};
-  font-weight: ${({ theme }) => theme.typography.h3.fontWeight};
+  font-size: ${({ theme }) => theme.typography.h3.fontSize};
+  font-weight: ${({ theme }) => theme.typography.h4.fontWeight};
   color: ${({ theme }) => theme.palette.text.secondary};
   text-transform: lowercase;
 `;
@@ -51,29 +50,30 @@ export const NewTitleWrapper = styled(Box)`
 `;
 
 export const NewsTitle = styled(Typography)`
-  font-size: ${({ theme }) => theme.typography.h1.fontSize};
+  font-size: ${({ theme }) => theme.typography.h2.fontSize};
   text-transform: uppercase;
-  font-weight: ${({ theme }) => theme.typography.h1.fontWeight};
+  font-weight: ${({ theme }) => theme.typography.h2.fontWeight};
   margin-right: auto;
 `;
 
-export const NewsLink = styled(Button)`
+export const NewsLinkWrapper = styled(Button)`
   display: flex;
   min-width: 132px;
   height: 38px;
+
   &:hover {
     background-color: ${({ theme }) => theme.palette.info.dark};
-
-    a {
-      color: ${({ theme }) => theme.palette.primary.main};
-    }
   }
+`;
 
-  & a {
-    box-sizing: border-box;
-    font-size: ${({ theme }) => theme.typography.h3.fontSize};
-    text-decoration: none;
-    color: inherit;
+export const NewsLink = styled('a')`
+  box-sizing: border-box;
+  font-size: ${({ theme }) => theme.typography.h4.fontSize};
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    color: ${({ theme }) => theme.palette.primary.main};
   }
 `;
 

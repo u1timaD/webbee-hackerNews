@@ -1,6 +1,5 @@
-import { IconButton } from '@mui/material';
+import { IconButton, Box  } from '@mui/material';
 import styled from '@emotion/styled';
-import { Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 export const HeaderStyled = styled(Box)`
@@ -21,7 +20,6 @@ export const HeaderLogoLink = styled(Link)`
 
 export const HeaderWrapper = styled(Box)`
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-between;
 `;

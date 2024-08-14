@@ -10,20 +10,14 @@ const UpdateButton = () => {
   const { fetchNewsDetail } = useNewsDetailStore();
   const location = useLocation();
   const { id } = useParams();
-
-  const handleUpdate = () => {
-    if (location.pathname === pages.home) {
-      fetchAllNews(true);
-      return;
-    }
-
-    if (location.pathname.includes(pages.news)) {
-      fetchNewsDetail(Number(id), true);
-    }
-  };
+  const isHome = location.pathname === pages.home;
 
   return (
-    <StyledUpdateButton onClick={handleUpdate}>
+    <StyledUpdateButton
+      onClick={() => {
+        isHome ? fetchAllNews(true) : fetchNewsDetail(Number(id), true);
+      }}
+    >
       <UpdateIcon fontSize="large" />
     </StyledUpdateButton>
   );

@@ -8,7 +8,7 @@ const News = ({ id, title, time, time_ago, user, points }: NewsProps) => {
   return (
     <NewsItem>
       <NewsLink to={`/news/${id}`}>
-        <NewsTitle variant="h2">{title}</NewsTitle>
+        <NewsTitle variant="h3">{title}</NewsTitle>
         <NewsInfo>
           <NewsRating>{points || 0}</NewsRating>
           <NewsAuthor>{user || NO_USER_NAME}</NewsAuthor>

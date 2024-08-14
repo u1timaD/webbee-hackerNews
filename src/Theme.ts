@@ -43,18 +43,22 @@ export const theme = createTheme({
     fontSize: 14,
     fontWeightMedium: 600,
     h1: {
-      fontSize: '26px',
+      fontSize: '36px',
       fontWeight: 700,
     },
     h2: {
-      fontSize: '14px',
+      fontSize: '26px',
       fontWeight: 700,
     },
     h3: {
+      fontSize: '14px',
+      fontWeight: 700,
+    },
+    h4: {
       fontSize: '12px',
       fontWeight: 400,
     },
-    h4: {
+    h5: {
       fontSize: '12px',
       fontWeight: 600,
     },
@@ -77,6 +81,9 @@ export const theme = createTheme({
     },
     action: {
       hover: '#0044cc',
+    },
+    error: {
+      main: '#d32f2f',
     },
     backgroundColors: {
       comment: '#d9e5fe',

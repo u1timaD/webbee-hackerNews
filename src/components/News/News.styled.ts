@@ -1,6 +1,5 @@
-import { ListItem, Typography } from '@mui/material';
+import { ListItem, Typography, Box  } from '@mui/material';
 import styled from '@emotion/styled';
-import { Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 export const NewsItem = styled(ListItem)`
@@ -52,8 +51,8 @@ export const NewsLink = styled(Link)`
 `;
 
 export const NewsTitle = styled(Typography)`
-  font-size: ${({ theme }) => theme.typography.h1.fontSize};
-  font-weight: ${({ theme }) => theme.typography.h1.fontWeight};
+  font-size: ${({ theme }) => theme.typography.h2.fontSize};
+  font-weight: ${({ theme }) => theme.typography.h2.fontWeight};
   text-transform: uppercase;
   margin-bottom: ${({ theme }) => theme.spacing(1)};
 `;
@@ -69,19 +68,19 @@ export const NewsRating = styled(Typography)`
   padding: ${({ theme }) => theme.spacing(1, 2)};
   background-color: ${({ theme }) => theme.palette.primary.dark};
   color: ${({ theme }) => theme.palette.primary.main};
-  font-size: ${({ theme }) => theme.typography.h3.fontSize};
-  font-weight: ${({ theme }) => theme.typography.h4.fontWeight};
+  font-size: ${({ theme }) => theme.typography.h4.fontSize};
+  font-weight: ${({ theme }) => theme.typography.h5.fontWeight};
 `;
 
 export const NewsAuthor = styled(Typography)`
-  font-size: ${({ theme }) => theme.typography.h3.fontSize};
-  font-weight: ${({ theme }) => theme.typography.h4.fontWeight};
+  font-size: ${({ theme }) => theme.typography.h4.fontSize};
+  font-weight: ${({ theme }) => theme.typography.h5.fontWeight};
   text-transform: lowercase;
 `;
 
 export const NewsDate = styled(Typography)`
-  font-size: ${({ theme }) => theme.typography.h3.fontSize};
-  font-weight: ${({ theme }) => theme.typography.h3.fontWeight};
+  font-size: ${({ theme }) => theme.typography.h4.fontSize};
+  font-weight: ${({ theme }) => theme.typography.h4.fontWeight};
   color: ${({ theme }) => theme.palette.text.secondary};
   text-transform: lowercase;
 `;

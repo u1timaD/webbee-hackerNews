@@ -33,7 +33,10 @@ const CommentComponent = ({ comment }: CommentComponentProps) => {
           </StyledToggleComments>
         )}
       </StyledCommentsBlock>
-      {comment.comments && <Collapse in={open}>{comment.comments.map((child) => renderComment(child))}</Collapse>}
+      {comment.comments &&
+        <Collapse in={open}>
+          {comment.comments.map((child) => renderComment(child))}
+        </Collapse>}
     </StyledCommentsWrapper>
   );
 
