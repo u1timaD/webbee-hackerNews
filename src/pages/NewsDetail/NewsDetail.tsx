@@ -12,7 +12,7 @@ import {
   NewsLinkWrapper,
 } from './NewsDetail.styled';
 
-import { useEffect } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { useNewsDetailStore } from '../../Store/newsDetail';
 import { useNavigate, useParams } from 'react-router-dom';
 import { formatTime } from '../../utils/dateUtils';
@@ -25,8 +25,9 @@ const NewsDetail = () => {
   const { id } = useParams();
   const { newsDetail, comments, fetchNewsDetail, loading, error } = useNewsDetailStore();
   const navigate = useNavigate();
+  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (isNaN(Number(id))) {
       navigate('/404');
     }
@@ -38,13 +39,17 @@ const NewsDetail = () => {
     return () => clearInterval(interval);
   }, [id, fetchNewsDetail]);
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <Box component="section">
-      <NewsDetailWrapper>
-        {!loading ? (
-          <>
+    <>
+      {mounted ? (
+        <Box component="section">
+          <NewsDetailWrapper>
             <NewsBlock>
               <NewTitleWrapper>
                 <NewsTitle variant="h3">{newsDetail?.title}</NewsTitle>
@@ -69,12 +74,12 @@ const NewsDetail = () => {
                 <Comments key={id} comments={comments} />
               </Collapse>
             )}
-          </>
-        ) : (
-          <SkeletonLoader />
-        )}
-      </NewsDetailWrapper>
-    </Box>
+          </NewsDetailWrapper>
+        </Box>
+      ) : (
+        loading && <SkeletonLoader />
+      )}
+    </>
   );
 };
 
