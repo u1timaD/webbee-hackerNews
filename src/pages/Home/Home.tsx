@@ -22,7 +22,12 @@ const Home = () => {
 
   return (
     <Box component="section">
-      <NewsList>{loading ? <SkeletonLoader count={10} /> : news.map((item) => <News key={item.id} {...item} />)}</NewsList>
+      <NewsList>
+        {news.map((item) => (
+          <News key={item.id} {...item} />
+        ))}
+        {loading && <SkeletonLoader count={10} />}
+      </NewsList>
     </Box>
   );
 };
