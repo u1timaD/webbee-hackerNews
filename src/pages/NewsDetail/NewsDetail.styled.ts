@@ -46,20 +46,19 @@ export const NewsDate = styled(Typography)`
 
 export const NewTitleWrapper = styled(Box)`
   display: flex;
-  gap: ${({ theme }) => theme.spacing(3)};
+  justify-content: space-between;
 `;
 
 export const NewsTitle = styled(Typography)`
   font-size: ${({ theme }) => theme.typography.h2.fontSize};
   text-transform: uppercase;
   font-weight: ${({ theme }) => theme.typography.h2.fontWeight};
-  margin-right: auto;
 `;
 
 export const NewsLinkWrapper = styled(Button)`
-  display: flex;
-  min-width: 132px;
+  min-width: 200px;
   height: 38px;
+  padding: 0;
 
   &:hover {
     background-color: ${({ theme }) => theme.palette.info.dark};
@@ -71,6 +70,7 @@ export const NewsLink = styled('a')`
   font-size: ${({ theme }) => theme.typography.h4.fontSize};
   text-decoration: none;
   color: inherit;
+  padding: ${({ theme }) => theme.spacing(1, 2)};
 
   &:hover {
     color: ${({ theme }) => theme.palette.primary.main};

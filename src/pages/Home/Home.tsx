@@ -4,7 +4,7 @@ import { useNewsStore } from '../../Store/news';
 import { PAGE_UPDATE_TIME } from '../../utils/constants';
 import News from '../../components/News/News';
 import { Box } from '@mui/material';
-import SkeletonLoader from '../../components/SkeletonLoader/SkeletonLoader';
+import SkeletonNews from '../../components/SkeletonNews/SkeletonNews';
 
 const Home = () => {
   const { news, loading, error, fetchAllNews } = useNewsStore();
@@ -26,7 +26,7 @@ const Home = () => {
         {news.map((item) => (
           <News key={item.id} {...item} />
         ))}
-        {loading && <SkeletonLoader count={10} />}
+        {loading && <SkeletonNews count={10} />}
       </NewsList>
     </Box>
   );

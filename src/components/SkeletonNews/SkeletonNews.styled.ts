@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 import { Skeleton } from '@mui/material';
-import { SkeletonStyledProps } from './SkeletonLoader.types';
+import { SkeletonNewsStyledProps } from './SkeletonNews.types';
 
-export const SkeletonStyled = styled(Skeleton)<SkeletonStyledProps>`
+export const SkeletonNewsStyled = styled(Skeleton)<SkeletonNewsStyledProps>`
   width: 100%;
   height: 140px;
   top: 0;

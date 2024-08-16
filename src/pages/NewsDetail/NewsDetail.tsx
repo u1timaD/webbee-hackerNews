@@ -18,8 +18,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { formatTime } from '../../utils/dateUtils';
 import { NO_USER_NAME, PAGE_UPDATE_TIME } from '../../utils/constants';
 import { Box, Collapse, Typography } from '@mui/material';
-import Comments from '../../components/Comments/Comments';
-import SkeletonLoader from '../../components/SkeletonLoader/SkeletonLoader';
+import CommentsList from '../../components/Comments/CommentsList';
+import SkeletonNews from '../../components/SkeletonNews/SkeletonNews';
 
 const NewsDetail = () => {
   const { id } = useParams();
@@ -65,12 +65,12 @@ const NewsDetail = () => {
           </NewsBlock>
           {comments && (
             <Collapse in>
-              <Comments key={id} comments={comments} />
+              <CommentsList key={id} comments={comments} />
             </Collapse>
           )}
         </NewsDetailWrapper>
       )}
-      {loading && <SkeletonLoader />}
+      {loading && <SkeletonNews />}
     </Box>
   );
 };
